@@ -115,48 +115,56 @@ function getBibleVerse($verse, $version) {
 	xml_parse_into_struct($xml_parser, $xml, $vals, $index);
 	xml_parser_free($xml_parser);
 
-	$first = 0;
 	$quote = 0;
+	$first = 0;
 
 	foreach ($vals as $xml_elem) {
+		//
+		// Process the actual verse.
+		//
 		if(strcmp($xml_elem['tag'],"TEXT") === 0) {
 			if($quote == 0) {
-				$result = $result . ' "' . $xml_elem['value'];
+				$result .= ' "' . $xml_elem['value'];
 				$quote = 1;
 			} else {
-				$result = $result . " " . $xml_elem['value'];
+				$result .=  " " . $xml_elem['value'];
 			}
-		}
-		if(strcmp($xml_elem['tag'],"RESULT") === 0) {
-			if($first == 0) {
-				if(strcmp($version, "thai") === 0) {
-					//
-					// The site only return book names in English. Translate them
-					// to Thai.
-					//
-					$blist = explode(" ", $xml_elem['value']);
-					$bname = '';
-					$bver = '';
-					if(count($blist) == 3) {
-						$bname = $blist[0] . $blist[1];
-						$bver = $blist[2];
-					} elseif (count($blist) == 4) {
-						$bname = $blist[0] . $blist[1] . $blist[2];
-						$bver = $blist[3];
-					} else {
-						$bname = $blist[0];
-						$bver = $blist[1];
-					}
-					$result = $book[$bname] . " " . $bver;
+		} else if(strcmp($xml_elem['tag'],"RESULT") === 0) {
+			//
+			// This is a reference.
+			//
+			if(strcmp($version, "thai") === 0) {
+				//
+				// The site only return book names in English.
+				// Translate them to Thai.
+				//
+				$blist = explode(" ", $xml_elem['value']);
+				$bname = '';
+				$bver = '';
+				if(count($blist) == 3) {
+					$bname = $blist[0] . $blist[1];
+					$bver = $blist[2];
+				} elseif (count($blist) == 4) {
+					$bname = $blist[0] . $blist[1] . $blist[2];
+					$bver = $blist[3];
 				} else {
-					//
-					// English is fine here.
-					//
-					$result = $xml_elem['value'];
+					$bname = $blist[0];
+					$bver = $blist[1];
 				}
+				if($first != 0) {
+					$result .= "\n";
+				}
+				$result .= $book[$bname] . " " . $bver;
 				$first = 1;
 			} else {
-				$result = $result . '"' . "\n\n" . $xml_elem['value'];
+				//
+				// English is fine here.
+				//
+				if($first != 0) {
+					$result .= "\n";
+				}
+				$result .= $xml_elem['value'];
+				$first = 1;
 			}
 			$quote = 0;
 		}
@@ -164,11 +172,48 @@ function getBibleVerse($verse, $version) {
 	return $result . '"';
 }
 
-$verse = getenv('POPCLIP_TEXT');
-//$verse = "matthew 5:5";
-$results = getBibleVerse($verse, "kjv") . "\n";
-$results .= getBibleVerse($verse, "thai");
+unset($xml_elem);
 
-echo $results;
+//
+// Get the PopClip Environment variables for our
+// extension.
+//
+$verse = trim(getenv('POPCLIP_TEXT'));
+$qKJV = getenv('POPCLIP_OPTION_BIBLEKJV');
+$qThaiKJV = getenv("POPCLIP_OPTION_BIBLETHAIKJV");
+$keycode = intval(getenv('POPCLIP_MODIFIER_FLAGS'));
+$results = "";
+
+//
+// If the preference is set to KJV or the command key
+// is pressed, then get the verse from the English KJV
+// and add it to the result. If both the command key
+// and the control key is pressed, then get the KJV also.
+//
+if(($qKJV[0] == '1')||($keycode == 1048576)||($keycode == 1310720)) {
+	$results .= getBibleVerse($verse, "kjv") . "\n" ;
+}
+
+//
+// If the preference is set to the Thai KJV or the
+// control key is press then get the verse from the
+// Thai KJV and add it to the result. If both the
+// command key and the control key is pressed,
+// then get the Thai version also.
+//
+if(($qThaiKJV[0] == '1')||($keycode == 262144)||($keycode == 1310720)) {
+	$results .= getBibleVerse($verse, "thai") . "\n";
+}
+
+//
+// Anything echoed from the script will be pasted in
+// to the top most application by PopClip. If the results
+// is nothing, then return the verse.
+//
+if(strcmp($results,"")===0) {
+	echo $verse;
+} else {
+	echo $results;
+}
 
 ?>
