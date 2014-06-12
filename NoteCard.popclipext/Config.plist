@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>paste-result</string>
+			<key>Script Interpreter</key>
+			<string>/usr/bin/osascript</string>
+			<key>Shell Script File</key>
+			<string>NoteCard.scpt</string>
+			<key>Title</key>
+			<string>Note Card</string>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Take the selected string to a new NoteCard card.</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.notecard</string>
+	<key>Extension Name</key>
+	<string>NoteCard</string>
+	<key>Long Running</key>
+	<false/>
+	<key>Regular Expression</key>
+	<string>.*</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
