@@ -9,3 +9,4 @@ This repository contains my PopClip extensions that I have made. Try them out an
 
 **suround.popclipext** This extension will suround the current selection with either "**" with no keys pressed, "##" with the command key pressed, "&lt;h1&gt;&lt;/h1&gt;" with the alt key pressed, or "&lt;h3&gt;&lt;/h3&gt;" with the function key pressed.
 
+**TSLastCleaner.popclipext** This extension will pass the selected text to TextSoap using Alfred's TextSoap workflow to perform the last stored cleaner. It then pastes it back in place.
