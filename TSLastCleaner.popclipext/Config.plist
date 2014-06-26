@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>Before</key>
+			<string>cut</string>
+			<key>AppleScript File</key>
+			<string>TSLastCleaner.scpt</string>
+			<key>Title</key>
+			<string>TS: Run Last Cleaner</string>
+			<key>Image File</key>
+			<string>icon.png</string>
+		</dict>
+	</array>
+	<key>Apps</key>
+	<array>
+		<dict>
+			<key>Bundle Identifier</key>
+			<string>com.unmarked.textsoap7</string>
+			<key>Check Installed</key>
+			<true/>
+			<key>Link</key>
+			<string>http://www.unmarked.com/textsoap/</string>
+			<key>Name</key>
+			<string>TextSoap</string>
+		</dict>
+		<dict>
+			<key>Bundle Identifier</key>
+			<string>com.runningwithcrayons.Alfred-2</string>
+			<key>Check Installed</key>
+			<true/>
+			<key>Link</key>
+			<string>http://alfred.app/</string>
+			<key>Name</key>
+			<string>Alfred 2</string>
+		</dict>
+	</array>
+	<key>Credits</key>
+	<array>
+		<dict>
+			<key>Link</key>
+			<string>http://customct.com/</string>
+			<key>Name</key>
+			<string>Richard Guay</string>
+		</dict>
+	</array>
+
+	<key>Extension Description</key>
+	<string>Take the selected string and run it through the last TextSoap cleaner in Alfred.</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.TSLastCleaner</string>
+	<key>Extension Name</key>
+	<string>TSLastCleaner</string>
+	<key>Long Running</key>
+	<false/>
+	<key>Regular Expression</key>
+	<string>.*</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
