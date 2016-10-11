@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>paste-result</string>
+			<key>Script Interpreter</key>
+			<string>/usr/bin/ruby</string>
+			<key>Shell Script File</key>
+			<string>minute.rb</string>
+			<key>Title</key>
+			<string>min</string>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Takes a time stamp and converts it to minutes only.</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.minute</string>
+	<key>Extension Name</key>
+	<string>Minute</string>
+	<key>Long Running</key>
+	<false/>
+	<key>Regular Expression</key>
+	<string>^\d+(\:\d+)*</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
