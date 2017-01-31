@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>paste-result</string>
+			<key>Image File</key>
+			<string>bible.png</string>
+			<key>Script Interpreter</key>
+			<string>/usr/bin/php</string>
+			<key>Shell Script File</key>
+			<string>bible.php</string>
+			<key>Title</key>
+			<string>Bible</string>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Option Identifier</key>
+			<string>biblekjv</string>
+			<key>Option Type</key>
+			<string>boolean</string>
+			<key>Option Label</key>
+			<string>KJB</string>
+		</dict>
+	<dict>
+		<key>Option Identifier</key>
+		<string>biblethaikjv</string>
+		<key>Option Type</key>
+		<string>boolean</string>
+		<key>Option Label</key>
+		<string>Thai KJV</string>
+	</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Lookup Bible verses in Popclip.</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.bible</string>
+	<key>Extension Name</key>
+	<string>Bible</string>
+	<key>Long Running</key>
+	<true/>
+	<key>Regular Expression</key>
+	<string>(.*\d+\:\d+(\-\d+)*)</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
