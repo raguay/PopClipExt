@@ -33,8 +33,8 @@ if modifier == "0"
         note_file = File.open("#{noteplanData}#{journal}.txt")
         linesInFile = IO.readlines(note_file)
         lines = []
-        lines.push("- #{input}\n")
         lines.push(linesInFile)
+        lines.push("- #{input}\n")
         IO.write(note_file,lines.join)
         note_file.close
         exit(0)
@@ -51,23 +51,24 @@ else
         note_file = File.open("#{noteplanData}Inbox.txt")
         linesInFile = IO.readlines(note_file)
         lines = []
-        lines.push("- #{input}\n")
         lines.push(linesInFile)
+        lines.push("- #{input}\n")
         IO.write(note_file,lines.join)
         note_file.close
         exit(0)
     else
         if modifier == "262144"
-        #
-        # Control Modifier: Force save to the current day file.
-        #
-        todo_file = File.open("#{todo_file_loc}")
-        linesInFile = IO.readlines(todo_file)
-        lines = []
-        lines.push("- #{input}\n")
-        lines.push(linesInFile)
-        IO.write(todo_file,lines.join)
-        todo_file.close
-        exit(0)
+            #
+            # Control Modifier: Force save to the current day file.
+            #
+            todo_file = File.open("#{todo_file_loc}")
+            linesInFile = IO.readlines(todo_file)
+            lines = []
+            lines.push("- #{input}\n")
+            lines.push(linesInFile)
+            IO.write(todo_file,lines.join)
+            todo_file.close
+            exit(0)
+        end
     end
 end
