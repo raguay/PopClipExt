@@ -31,14 +31,6 @@
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
-			<string>user</string>
-			<key>Option Type</key>
-			<string>string</string>
-			<key>Option Label</key>
-			<string>User Name:</string>
-		</dict>
-		<dict>
-			<key>Option Identifier</key>
 			<string>stardash</string>
 			<key>Option Type</key>
 			<string>boolean</string>

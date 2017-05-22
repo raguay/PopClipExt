@@ -1,10 +1,11 @@
 #!/usr/bin/ruby
 
 require 'date'
+require 'etc'
 
 use_icloud = ENV['POPCLIP_OPTION_ICLOUD'].to_s == "1"
 use_mas = ENV['POPCLIP_OPTION_MAS'].to_s == "1"
-user = ENV['POPCLIP_OPTION_USER'].to_s.strip()
+user = Etc.getpwuid.name
 todo_file_loc = ""
 if use_icloud
     todo_file_loc = "/Users/#{user}/Library/Mobile Documents/iCloud~co~noteplan~NotePlan/Documents/Calendar/" + Date.today.strftime('%Y%m%d') + ".txt"
