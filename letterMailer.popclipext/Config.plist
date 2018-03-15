@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>show-status</string>
+            <key>Image File</key>
+            <string>letterMailer.png</string>
+            <key>Script Interpreter</key>
+            <string>/usr/bin/osascript</string>
+            <key>Shell Script File</key>
+            <string>letterMailer.scpt</string>
+            <key>Title</key>
+            <string>Let.ter Mailer</string>
+		</dict>
+	</array>
+	<key>Credits</key>
+	<array>
+	    <dict>
+	        <key>Name</key>
+	        <string>Richard Guay</string>
+	        <key>Link</key>
+	        <string>http://customct.com</string>
+	    </dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Email to the address given using Let.ter application.</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.letterMailer</string>
+	<key>Extension Name</key>
+	<string>Let.ter Mailer</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
