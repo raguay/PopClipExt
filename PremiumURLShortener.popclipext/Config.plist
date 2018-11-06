@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>After</key>
+			<string>paste-result</string>
+            <key>Image File</key>
+            <string>PremiumURLShortener.png</string>
+            <key>Script Interpreter</key>
+            <string>/usr/bin/ruby</string>
+            <key>Shell Script File</key>
+            <string>PremiumURLShortener.rb</string>
+            <key>Title</key>
+            <string>Shortener</string>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Option Identifier</key>
+			<string>address</string>
+			<key>Option Type</key>
+			<string>string</string>
+			<key>Option Label</key>
+			<string>Address: </string>
+		</dict>
+		<dict>
+			<key>Option Identifier</key>
+			<string>apikey</string>
+			<key>Option Type</key>
+			<string>string</string>
+			<key>Option Label</key>
+			<string>API Key: </string>
+		</dict>
+	</array>
+	<key>Credits</key>
+	<array>
+	    <dict>
+	        <key>Name</key>
+	        <string>Richard Guay</string>
+	        <key>Link</key>
+	        <string>http://customct.com</string>
+	    </dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Create shortened URLs with PremiumURLShortener locally</string>
+	<key>Extension Identifier</key>
+	<string>com.customct.popclip.extension.premiumurlshortener</string>
+	<key>Extension Name</key>
+	<string>Shortener</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
