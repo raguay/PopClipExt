@@ -101,6 +101,7 @@ $verse = ENV['POPCLIP_TEXT']
 $qKJV = ENV['POPCLIP_OPTION_BIBLEKJV']
 $qThaiKJV = ENV["POPCLIP_OPTION_BIBLETHAIKJV"]
 $keycode = ENV['POPCLIP_MODIFIER_FLAGS']
+$btextdir = ENV['POPCLIP_OPTION_BIBLETEXTDIR']
 $verseNumber = addrToVerse($verse)
 $bookName = ""
 $chapter = ""
@@ -117,7 +118,7 @@ end
 # Get the English verses.
 #
 if $keycode == "1048576" || $keycode == "1310720" || $qKJV == '1'
-    $verse = CleanVerse(IO.readlines("/Users/raguay/Dropbox/Richard/Bible Stuff/kjv.ont")[$verseNumber].chomp!)
+    $verse = CleanVerse(IO.readlines("#{$btextdir}/kjv.ont")[$verseNumber].chomp!)
     $result += "#{$bookName} #{$chapter}:#{$rverse} \"#{$verse}\"\n"
 end
 
@@ -126,7 +127,7 @@ end
 #
 if $keycode == "262144" || $keycode == "1310720" || $qThaiKJV == '1'
     $bookName = $bookNames[$bookName]
-    $rawVerse = IO.readlines("/Users/raguay/Dropbox/Richard/Bible Stuff/thaikjv.ont")[$verseNumber].chomp!
+    $rawVerse = IO.readlines("#{$btextdir}/thaikjv.ont")[$verseNumber].chomp!
     $verse = CleanVerse($rawVerse)
     if $verse == ''
         $verse = $rawVerse
