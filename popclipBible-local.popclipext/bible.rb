@@ -117,7 +117,7 @@ end
 # Get the English verses.
 #
 if $keycode == "1048576" || $keycode == "1310720" || $qKJV == '1'
-    $verse = CleanVerse(IO.readlines("kjv.ont")[$verseNumber].chomp!)
+    $verse = CleanVerse(IO.readlines("/Users/raguay/Dropbox/Richard/Bible Stuff/kjv.ont")[$verseNumber].chomp!)
     $result += "#{$bookName} #{$chapter}:#{$rverse} \"#{$verse}\"\n"
 end
 
@@ -126,7 +126,7 @@ end
 #
 if $keycode == "262144" || $keycode == "1310720" || $qThaiKJV == '1'
     $bookName = $bookNames[$bookName]
-    $rawVerse = IO.readlines("thaikjv.ont")[$verseNumber].chomp!
+    $rawVerse = IO.readlines("/Users/raguay/Dropbox/Richard/Bible Stuff/thaikjv.ont")[$verseNumber].chomp!
     $verse = CleanVerse($rawVerse)
     if $verse == ''
         $verse = $rawVerse
